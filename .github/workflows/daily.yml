@@ -3,9 +3,8 @@ name: TikkerTakker Daily Pipeline
 on:
   schedule:
     # 6:15am AEST = 8:15pm UTC (previous day)
-    # Anchored to US ET game dates — catches all 3:30pm ET+ tip-offs
     - cron: '15 20 * * *'
-  workflow_dispatch: # Allow manual trigger
+  workflow_dispatch:
 
 jobs:
   run-pipeline:
@@ -22,11 +21,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install nba_api pandas numpy scikit-learn requests pytz
+          pip install pandas numpy scikit-learn requests pytz
 
       - name: Run TikkerTakker pipeline
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          BDL_API_KEY: ${{ secrets.BDL_API_KEY }}
         run: python model.py
 
       - name: Commit updated results
