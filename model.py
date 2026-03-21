@@ -37,11 +37,31 @@ CONF_MAX       = 70.0
 # ── Step 1: Fetch NBA game data ────────────────────────────
 def fetch_nba_data():
     print("📡 Fetching NBA game data...")
+
+    # Required headers to bypass stats.nba.com blocking in automated environments
+    from nba_api.library.http import NBAStatsHTTP
+    NBAStatsHTTP.nba_response_timeout = 60
+    headers = {
+        'Host': 'stats.nba.com',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'application/json, text/plain, */*',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'x-nba-stats-origin': 'stats',
+        'x-nba-stats-token': 'true',
+        'Referer': 'https://www.nba.com/',
+        'Connection': 'keep-alive',
+        'Origin': 'https://www.nba.com',
+    }
+
     seasons = ['2021-22', '2022-23', '2023-24', '2024-25', '2025-26']
     frames = []
     for season in seasons:
         gf = leaguegamefinder.LeagueGameFinder(
-            season_nullable=season, league_id_nullable='00'
+            season_nullable=season,
+            league_id_nullable='00',
+            headers=headers,
+            timeout=60,
         )
         frames.append(gf.get_data_frames()[0])
 
