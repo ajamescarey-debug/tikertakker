@@ -108,6 +108,115 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 1 \u2014 4 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-03-22",
+      "us_game_date": "2026-03-21",
+      "day_number": 2,
+      "run_time_aest": "07:57",
+      "games_scoped": [
+        "WAS vs OKC",
+        "CHA vs MEM",
+        "NOP vs CLE",
+        "ORL vs LAL"
+      ],
+      "scope_detail": [
+        {
+          "game": "WAS vs OKC",
+          "home": "WAS",
+          "away": "OKC",
+          "vegas_line": "WAS +21.5",
+          "model_spread": "WAS -9.7",
+          "edge": 31.2,
+          "win_prob": "18.8%",
+          "confidence": 62.4,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 31.2pts outside 3-7 range",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 21.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 231.3
+        },
+        {
+          "game": "CHA vs MEM",
+          "home": "CHA",
+          "away": "MEM",
+          "vegas_line": "CHA -18.5",
+          "model_spread": "CHA +1.2",
+          "edge": 19.7,
+          "win_prob": "50.3%",
+          "confidence": 0.7,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 19.7pts outside 3-7 range & Confidence 0.7 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -18.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 230.5
+        },
+        {
+          "game": "NOP vs CLE",
+          "home": "NOP",
+          "away": "CLE",
+          "vegas_line": "NOP +6.0",
+          "model_spread": "NOP -3.6",
+          "edge": 9.6,
+          "win_prob": "35.2%",
+          "confidence": 29.6,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 9.6pts outside 3-7 range & Confidence 29.6 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 6.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 230.9
+        },
+        {
+          "game": "ORL vs LAL",
+          "home": "ORL",
+          "away": "LAL",
+          "vegas_line": "ORL +4.0",
+          "model_spread": "ORL +3.3",
+          "edge": 0.7,
+          "win_prob": "61.0%",
+          "confidence": 22.0,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 0.7pts outside 3-7 range & Confidence 22.0 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 4.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 227.8
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 2 \u2014 4 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
