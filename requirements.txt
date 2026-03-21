@@ -1,4 +1,3 @@
-nba_api
 pandas
 numpy
 scikit-learn
