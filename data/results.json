@@ -1,5 +1,115 @@
 {
-  "daily_log": [],
+  "daily_log": [
+    {
+      "date": "2026-03-21",
+      "us_game_date": "2026-03-21",
+      "day_number": 1,
+      "run_time_aest": "23:43",
+      "games_scoped": [
+        "WAS vs OKC",
+        "CHA vs MEM",
+        "NOP vs CLE",
+        "ORL vs LAL"
+      ],
+      "scope_detail": [
+        {
+          "game": "WAS vs OKC",
+          "home": "WAS",
+          "away": "OKC",
+          "vegas_line": "WAS +21.0",
+          "model_spread": "WAS -9.7",
+          "edge": 30.7,
+          "win_prob": "18.8%",
+          "confidence": 62.4,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 30.7pts outside 3-7 range",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 21.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 231.3
+        },
+        {
+          "game": "CHA vs MEM",
+          "home": "CHA",
+          "away": "MEM",
+          "vegas_line": "CHA -16.5",
+          "model_spread": "CHA +1.2",
+          "edge": 17.7,
+          "win_prob": "50.3%",
+          "confidence": 0.7,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 17.7pts outside 3-7 range & Confidence 0.7 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -16.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 230.5
+        },
+        {
+          "game": "NOP vs CLE",
+          "home": "NOP",
+          "away": "CLE",
+          "vegas_line": "NOP +4.5",
+          "model_spread": "NOP -3.6",
+          "edge": 8.1,
+          "win_prob": "35.2%",
+          "confidence": 29.6,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 8.1pts outside 3-7 range & Confidence 29.6 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 4.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 230.9
+        },
+        {
+          "game": "ORL vs LAL",
+          "home": "ORL",
+          "away": "LAL",
+          "vegas_line": "ORL +3.5",
+          "model_spread": "ORL +3.3",
+          "edge": 0.2,
+          "win_prob": "61.0%",
+          "confidence": 22.0,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 0.2pts outside 3-7 range & Confidence 22.0 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 3.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 227.8
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 1 \u2014 4 games scoped, 0 qualifying bets."
+    }
+  ],
   "bets": [],
   "model_history": {
     "model_info": {
@@ -12,10 +122,30 @@
       "do_not_bet": "Edge >7pts, Confidence >70, Totals, Playoffs"
     },
     "backtest_results": {
-      "2021-22": { "bets": 53, "wins": 31, "ats_accuracy": "58.5%", "roi": "+11.2%" },
-      "2022-23": { "bets": 54, "wins": 33, "ats_accuracy": "61.1%", "roi": "+17.4%" },
-      "2023-24": { "bets": 52, "wins": 30, "ats_accuracy": "57.7%", "roi": "+10.8%" },
-      "2024-25": { "bets": 53, "wins": 34, "ats_accuracy": "64.2%", "roi": "+24.8%" },
+      "2021-22": {
+        "bets": 53,
+        "wins": 31,
+        "ats_accuracy": "58.5%",
+        "roi": "+11.2%"
+      },
+      "2022-23": {
+        "bets": 54,
+        "wins": 33,
+        "ats_accuracy": "61.1%",
+        "roi": "+17.4%"
+      },
+      "2023-24": {
+        "bets": 52,
+        "wins": 30,
+        "ats_accuracy": "57.7%",
+        "roi": "+10.8%"
+      },
+      "2024-25": {
+        "bets": 53,
+        "wins": 34,
+        "ats_accuracy": "64.2%",
+        "roi": "+24.8%"
+      },
       "overall": {
         "bets": 212,
         "ats_accuracy": "60.8%",
