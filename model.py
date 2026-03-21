@@ -458,8 +458,16 @@ def run_pipeline():
     existing = [e for e in results["daily_log"] if e["date"] != aest_date]
     results["daily_log"] = existing + [log_entry]
 
+    # Convert numpy types before saving
+    def convert(obj):
+        if isinstance(obj, (np.integer,)): return int(obj)
+        if isinstance(obj, (np.floating,)): return float(obj)
+        if isinstance(obj, (np.bool_,)): return bool(obj)
+        if isinstance(obj, np.ndarray): return obj.tolist()
+        raise TypeError(f"Not serializable: {type(obj)}")
+
     with open(RESULTS_FILE, "w") as f:
-        json.dump(results, f, indent=2)
+        json.dump(results, f, indent=2, default=convert)
 
     print(f"\n✅ Saved to {RESULTS_FILE}")
     print(f"📊 {len(scope_detail)} scoped, {len(qualifying)} qualifying")
