@@ -39,8 +39,6 @@ def fetch_nba_data():
     print("📡 Fetching NBA game data...")
 
     # Required headers to bypass stats.nba.com blocking in automated environments
-    from nba_api.library.http import NBAStatsHTTP
-    NBAStatsHTTP.nba_response_timeout = 60
     headers = {
         'Host': 'stats.nba.com',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
