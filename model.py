@@ -13,89 +13,104 @@ import numpy as np
 import warnings
 from datetime import datetime, timedelta
 import pytz
+import time
 
 warnings.filterwarnings('ignore')
 
-from nba_api.stats.endpoints import leaguegamefinder
 from sklearn.linear_model import LogisticRegression, Ridge
 from sklearn.preprocessing import StandardScaler
 
 # ── Config ─────────────────────────────────────────────────
 ODDS_API_KEY   = os.environ.get("ODDS_API_KEY", "")
+BDL_API_KEY    = os.environ.get("BDL_API_KEY", "")
 RESULTS_FILE   = "data/results.json"
 AEST           = pytz.timezone("Australia/Melbourne")
 
-# AU bookmakers to query
 AU_BOOKS = ["tab", "betr", "pointsbet"]
+EDGE_MIN = 3.0
+EDGE_MAX = 7.0
+CONF_MIN = 50.0
+CONF_MAX = 70.0
 
-# Qualifying criteria
-EDGE_MIN       = 3.0
-EDGE_MAX       = 7.0
-CONF_MIN       = 50.0
-CONF_MAX       = 70.0
-
-# ── Step 1: Fetch NBA game data ────────────────────────────
+# ── Step 1: Fetch NBA data via BallDontLie ─────────────────
 def fetch_nba_data():
-    print("📡 Fetching NBA game data...")
+    print("📡 Fetching NBA game data via BallDontLie...")
+    headers = {"Authorization": BDL_API_KEY} if BDL_API_KEY else {}
+    all_games = []
 
-    # Required headers to bypass stats.nba.com blocking in automated environments
-    headers = {
-        'Host': 'stats.nba.com',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Accept': 'application/json, text/plain, */*',
-        'Accept-Language': 'en-US,en;q=0.9',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'x-nba-stats-origin': 'stats',
-        'x-nba-stats-token': 'true',
-        'Referer': 'https://www.nba.com/',
-        'Connection': 'keep-alive',
-        'Origin': 'https://www.nba.com',
-    }
+    for season in [2022, 2023, 2024, 2025]:
+        page = 1
+        print(f"  Season {season}...")
+        while True:
+            try:
+                resp = requests.get(
+                    "https://api.balldontlie.io/v1/games",
+                    headers=headers,
+                    params={"seasons[]": season, "per_page": 100, "page": page},
+                    timeout=30,
+                )
+                data = resp.json()
+                games = data.get("data", [])
+                if not games:
+                    break
+                all_games.extend(games)
+                meta = data.get("meta", {})
+                if page >= meta.get("total_pages", 1):
+                    break
+                page += 1
+                time.sleep(0.3)
+            except Exception as e:
+                print(f"  ⚠️ Season {season} page {page}: {e}")
+                break
 
-    seasons = ['2021-22', '2022-23', '2023-24', '2024-25', '2025-26']
-    frames = []
-    for season in seasons:
-        gf = leaguegamefinder.LeagueGameFinder(
-            season_nullable=season,
-            league_id_nullable='00',
-            headers=headers,
-            timeout=60,
-        )
-        frames.append(gf.get_data_frames()[0])
+    print(f"  Raw games: {len(all_games)}")
 
-    df = pd.concat(frames, ignore_index=True)
-    df['GAME_DATE'] = pd.to_datetime(df['GAME_DATE'])
-    df = df.sort_values('GAME_DATE').reset_index(drop=True)
+    rows = []
+    for g in all_games:
+        if g.get("status") != "Final":
+            continue
+        home       = g.get("home_team", {})
+        away       = g.get("visitor_team", {})
+        home_score = g.get("home_team_score", 0) or 0
+        away_score = g.get("visitor_team_score", 0) or 0
+        date_str   = g.get("date", "")[:10]
+        if not date_str or home_score == 0:
+            continue
+
+        game_date = pd.to_datetime(date_str)
+        home_abbr = home.get("abbreviation", "")
+        away_abbr = away.get("abbreviation", "")
+
+        rows.append({
+            'GAME_ID': g["id"], 'GAME_DATE': game_date,
+            'TEAM_ABBREVIATION': home_abbr, 'HOME': 1,
+            'HOME_TEAM': home_abbr, 'AWAY_TEAM': away_abbr,
+            'PTS': home_score, 'PTS_ALLOWED': away_score,
+            'POINT_DIFF': home_score - away_score,
+            'GAME_TOTAL': home_score + away_score,
+            'WIN': 1 if home_score > away_score else 0,
+            'FG_PCT': 0.46, 'FG3_PCT': 0.36, 'TOV': 14.0, 'REB': 44.0,
+        })
+        rows.append({
+            'GAME_ID': g["id"], 'GAME_DATE': game_date,
+            'TEAM_ABBREVIATION': away_abbr, 'HOME': 0,
+            'HOME_TEAM': home_abbr, 'AWAY_TEAM': away_abbr,
+            'PTS': away_score, 'PTS_ALLOWED': home_score,
+            'POINT_DIFF': away_score - home_score,
+            'GAME_TOTAL': home_score + away_score,
+            'WIN': 1 if away_score > home_score else 0,
+            'FG_PCT': 0.46, 'FG3_PCT': 0.36, 'TOV': 14.0, 'REB': 44.0,
+        })
+
+    df = pd.DataFrame(rows)
+    df = df.sort_values(['TEAM_ABBREVIATION', 'GAME_DATE']).reset_index(drop=True)
+    df['DAYS_REST'] = df.groupby('TEAM_ABBREVIATION')['GAME_DATE'].diff().dt.days.fillna(3)
+    df['B2B'] = (df['DAYS_REST'] <= 1).astype(int)
     print(f"✅ Loaded {len(df):,} team-game records")
     return df
 
 
-# ── Step 2: Engineer features ──────────────────────────────
-def engineer_features(df):
-    print("⚙️  Engineering features...")
-    df['HOME'] = df['MATCHUP'].str.contains('vs.').astype(int)
-
-    home_g = df[df['HOME'] == 1][['GAME_ID', 'TEAM_ABBREVIATION', 'PTS']].copy()
-    away_g = df[df['HOME'] == 0][['GAME_ID', 'TEAM_ABBREVIATION', 'PTS']].copy()
-    home_g.columns = ['GAME_ID', 'HOME_TEAM', 'HOME_PTS']
-    away_g.columns = ['GAME_ID', 'AWAY_TEAM', 'AWAY_PTS']
-    game_scores = pd.merge(home_g, away_g, on='GAME_ID')
-
-    df = pd.merge(df, game_scores, on='GAME_ID', how='left')
-    df['PTS_ALLOWED'] = np.where(df['HOME'] == 1, df['AWAY_PTS'], df['HOME_PTS'])
-    df['POINT_DIFF']  = df['PTS'] - df['PTS_ALLOWED']
-    df['GAME_TOTAL']  = df['PTS'] + df['PTS_ALLOWED']
-    df['WIN']         = (df['POINT_DIFF'] > 0).astype(int)
-
-    df = df.sort_values(['TEAM_ABBREVIATION', 'GAME_DATE']).reset_index(drop=True)
-    df['DAYS_REST'] = df.groupby('TEAM_ABBREVIATION')['GAME_DATE'].diff().dt.days.fillna(3)
-    df['B2B'] = (df['DAYS_REST'] <= 1).astype(int)
-
-    print("✅ Features engineered")
-    return df
-
-
-# ── Step 3: Build rolling stats ────────────────────────────
+# ── Step 2: Rolling stats ──────────────────────────────────
 def rolling_stats(df, team_abbr, game_date, n=10):
     team_data = df[
         (df['TEAM_ABBREVIATION'] == team_abbr) &
@@ -124,7 +139,7 @@ def rolling_stats(df, team_abbr, game_date, n=10):
     }
 
 
-# ── Step 4: Train models ───────────────────────────────────
+# ── Step 3: Train models ───────────────────────────────────
 FEATURES = [
     'NET_DIFF_L5', 'NET_DIFF_L10', 'NET_DIFF_L15',
     'OFF_DIFF_L5', 'OFF_DIFF_L10', 'OFF_DIFF_L15',
@@ -143,7 +158,7 @@ def train_models(df):
 
     rows = []
     for _, game in home_df.iterrows():
-        hs = rolling_stats(df, game['HOME_TEAM'], game['GAME_DATE'])
+        hs  = rolling_stats(df, game['HOME_TEAM'], game['GAME_DATE'])
         as_ = rolling_stats(df, game['AWAY_TEAM'], game['GAME_DATE'])
         if hs is None or as_ is None:
             continue
@@ -180,25 +195,24 @@ def train_models(df):
         })
 
     model_df = pd.DataFrame(rows)
-    X = model_df[FEATURES]
-    scaler = StandardScaler()
+    X        = model_df[FEATURES]
+    scaler   = StandardScaler()
     X_scaled = scaler.fit_transform(X)
 
-    win_model    = LogisticRegression(max_iter=1000)
-    spread_model = Ridge(alpha=1.0)
-    totals_model = Ridge(alpha=1.0)
+    win_m    = LogisticRegression(max_iter=1000)
+    spread_m = Ridge(alpha=1.0)
+    totals_m = Ridge(alpha=1.0)
 
-    win_model.fit(X_scaled, model_df['HOME_WIN'])
-    spread_model.fit(X_scaled, model_df['POINT_DIFF'])
-    totals_model.fit(X_scaled, model_df['GAME_TOTAL'])
+    win_m.fit(X_scaled,    model_df['HOME_WIN'])
+    spread_m.fit(X_scaled, model_df['POINT_DIFF'])
+    totals_m.fit(X_scaled, model_df['GAME_TOTAL'])
 
     print(f"✅ Models trained on {len(model_df):,} games")
-    return win_model, spread_model, totals_model, scaler, df
+    return win_m, spread_m, totals_m, scaler, df
 
 
-# ── Step 5: Predict a game ─────────────────────────────────
-def predict_game(df, win_model, spread_model, totals_model, scaler,
-                 home_team, away_team, game_date=None):
+# ── Step 4: Predict a game ─────────────────────────────────
+def predict_game(df, win_m, spread_m, totals_m, scaler, home_team, away_team, game_date=None):
     if game_date is None:
         game_date = df['GAME_DATE'].max() + timedelta(days=1)
 
@@ -236,9 +250,9 @@ def predict_game(df, win_model, spread_model, totals_model, scaler,
     row_df     = pd.DataFrame([feature_row])[FEATURES]
     row_scaled = scaler.transform(row_df)
 
-    win_prob    = win_model.predict_proba(row_scaled)[0][1]
-    spread_pred = spread_model.predict(row_scaled)[0]
-    total_pred  = totals_model.predict(row_scaled)[0]
+    win_prob    = win_m.predict_proba(row_scaled)[0][1]
+    spread_pred = spread_m.predict(row_scaled)[0]
+    total_pred  = totals_m.predict(row_scaled)[0]
     confidence  = abs(win_prob - 0.5) * 200
 
     return {
@@ -249,54 +263,36 @@ def predict_game(df, win_model, spread_model, totals_model, scaler,
     }
 
 
-# ── Step 6: Fetch AU odds from The Odds API ────────────────
-def fetch_au_odds():
-    print("💰 Fetching AU odds from The Odds API...")
+# ── Step 5: Fetch AU odds ──────────────────────────────────
+def get_todays_games_et():
+    et = pytz.timezone("America/New_York")
+    today_et = datetime.now(et).strftime("%Y-%m-%d")
+    print(f"📅 Fetching AU odds for US date: {today_et}")
+
     url = "https://api.the-odds-api.com/v4/sports/basketball_nba/odds"
     params = {
-        "apiKey":   ODDS_API_KEY,
-        "regions":  "au",
-        "markets":  "spreads",
-        "oddsFormat": "decimal",
-        "bookmakers": ",".join(AU_BOOKS),
+        "apiKey":             ODDS_API_KEY,
+        "regions":            "au",
+        "markets":            "spreads",
+        "oddsFormat":         "decimal",
+        "bookmakers":         ",".join(AU_BOOKS),
+        "commenceTimeFrom":   f"{today_et}T00:00:00Z",
+        "commenceTimeTo":     f"{today_et}T23:59:59Z",
     }
 
     try:
         resp = requests.get(url, params=params, timeout=15)
         data = resp.json()
         if isinstance(data, dict) and "message" in data:
-            print(f"⚠️  Odds API error: {data['message']}")
-            return {}
-
-        odds_map = {}
-        for game in data:
-            home = game.get("home_team", "")
-            away = game.get("away_team", "")
-            key  = f"{home}|{away}"
-            odds_map[key] = {"home": home, "away": away, "books": {}}
-
-            for bm in game.get("bookmakers", []):
-                book_key = bm["key"]
-                for market in bm.get("markets", []):
-                    if market["key"] == "spreads":
-                        for outcome in market.get("outcomes", []):
-                            if outcome["name"] == home:
-                                if book_key not in odds_map[key]["books"]:
-                                    odds_map[key]["books"][book_key] = {}
-                                odds_map[key]["books"][book_key] = {
-                                    "spread": outcome.get("point", 0),
-                                    "odds":   outcome.get("price", 1.90),
-                                }
-
-        print(f"✅ Fetched odds for {len(odds_map)} games")
-        return odds_map
-
+            print(f"⚠️  Odds API: {data['message']}")
+            return [], today_et
+        return data, today_et
     except Exception as e:
         print(f"⚠️  Odds fetch failed: {e}")
-        return {}
+        return [], today_et
 
 
-# ── Step 7: Match team name to abbreviation ────────────────
+# ── Team name → abbreviation ───────────────────────────────
 TEAM_MAP = {
     "Atlanta Hawks": "ATL", "Boston Celtics": "BOS",
     "Brooklyn Nets": "BKN", "Charlotte Hornets": "CHA",
@@ -316,53 +312,19 @@ TEAM_MAP = {
 }
 
 
-# ── Step 8: Get today's scheduled games (US ET date) ───────
-def get_todays_games_et():
-    """Use US Eastern Time as source of truth for game dates."""
-    et = pytz.timezone("America/New_York")
-    today_et = datetime.now(et).strftime("%Y-%m-%d")
-    print(f"📅 Fetching games for US date: {today_et} (ET)")
-
-    url = "https://api.the-odds-api.com/v4/sports/basketball_nba/odds"
-    params = {
-        "apiKey":     ODDS_API_KEY,
-        "regions":    "au",
-        "markets":    "spreads",
-        "oddsFormat": "decimal",
-        "bookmakers": ",".join(AU_BOOKS),
-        "commenceTimeFrom": f"{today_et}T00:00:00Z",
-        "commenceTimeTo":   f"{today_et}T23:59:59Z",
-    }
-
-    try:
-        resp = requests.get(url, params=params, timeout=15)
-        data = resp.json()
-        if isinstance(data, dict) and "message" in data:
-            print(f"⚠️  {data['message']}")
-            return [], today_et
-        return data, today_et
-    except Exception as e:
-        print(f"⚠️  Game fetch failed: {e}")
-        return [], today_et
-
-
-# ── Step 9: Run full daily pipeline ───────────────────────
+# ── Step 6: Run full pipeline ──────────────────────────────
 def run_pipeline():
     print("\n" + "="*55)
     au_now = datetime.now(AEST).strftime("%Y-%m-%d %H:%M AEST")
     print(f"  🏀 TIKKERTAKKER — {au_now}")
     print("="*55 + "\n")
 
-    # Load and train
-    df               = fetch_nba_data()
-    df               = engineer_features(df)
-    win_m, sp_m, tot_m, scaler, df = train_models(df)
+    df                           = fetch_nba_data()
+    win_m, spread_m, totals_m, scaler, df = train_models(df)
+    games_data, today_et         = get_todays_games_et()
 
-    # Get today's games with AU odds
-    games_data, today_et = get_todays_games_et()
-
-    scope_detail  = []
-    qualifying    = []
+    scope_detail = []
+    qualifying   = []
 
     for game in games_data:
         home_full = game.get("home_team", "")
@@ -373,13 +335,10 @@ def run_pipeline():
         if not home_abbr or not away_abbr:
             continue
 
-        # Get model prediction
-        pred = predict_game(df, win_m, sp_m, tot_m, scaler,
-                            home_abbr, away_abbr)
+        pred = predict_game(df, win_m, spread_m, totals_m, scaler, home_abbr, away_abbr)
         if pred is None:
             continue
 
-        # Extract AU odds per book
         books_odds = {}
         best_odds  = None
         best_book  = None
@@ -393,10 +352,7 @@ def run_pipeline():
                         if outcome["name"] == home_full:
                             spread = outcome.get("point", 0)
                             price  = outcome.get("price", 1.90)
-                            books_odds[bk] = {
-                                "spread": spread,
-                                "odds":   price,
-                            }
+                            books_odds[bk] = {"spread": spread, "odds": price}
                             if vegas_line is None:
                                 vegas_line = spread
                             if best_odds is None or price > best_odds:
@@ -406,74 +362,70 @@ def run_pipeline():
         if vegas_line is None:
             continue
 
-        # Calculate edge
         edge       = round(abs(pred['spread_pred'] - vegas_line), 1)
         confidence = pred['confidence']
         win_prob   = pred['win_prob']
 
-        # Determine bet side
-        if pred['spread_pred'] > vegas_line:
-            bet_side = f"{home_abbr} covers {vegas_line:+.1f}"
-        else:
-            bet_side = f"{away_abbr} covers {-vegas_line:+.1f}"
+        bet_side = (f"{home_abbr} covers {vegas_line:+.1f}"
+                    if pred['spread_pred'] > vegas_line
+                    else f"{away_abbr} covers {-vegas_line:+.1f}")
 
-        # Qualify
         qualifies = (EDGE_MIN <= edge <= EDGE_MAX) and (CONF_MIN <= confidence <= CONF_MAX)
 
         if qualifies:
             verdict = "✅ BET"
-            reason  = f"Edge {edge}pts in 3-7 range & confidence {confidence} in 50-70"
+            reason  = f"Edge {edge}pts in range & confidence {confidence} in range"
         else:
-            verdict = "NO BET"
             reasons = []
             if not (EDGE_MIN <= edge <= EDGE_MAX):
                 reasons.append(f"Edge {edge}pts outside 3-7 range")
             if not (CONF_MIN <= confidence <= CONF_MAX):
                 reasons.append(f"Confidence {confidence} outside 50-70")
-            reason = " & ".join(reasons)
+            verdict = "NO BET"
+            reason  = " & ".join(reasons)
 
         entry = {
-            "game":        f"{home_abbr} vs {away_abbr}",
-            "home":        home_abbr,
-            "away":        away_abbr,
-            "vegas_line":  f"{home_abbr} {vegas_line:+.1f}",
+            "game":         f"{home_abbr} vs {away_abbr}",
+            "home":         home_abbr,
+            "away":         away_abbr,
+            "vegas_line":   f"{home_abbr} {vegas_line:+.1f}",
             "model_spread": f"{home_abbr} {pred['spread_pred']:+.1f}",
-            "edge":        edge,
-            "win_prob":    f"{win_prob*100:.1f}%",
-            "confidence":  confidence,
-            "qualifies":   qualifies,
-            "verdict":     verdict,
-            "reason":      reason,
-            "bet_side":    bet_side if qualifies else None,
-            "books":       books_odds,
-            "best_book":   best_book,
-            "best_odds":   best_odds,
-            "proj_total":  pred['total_pred'],
+            "edge":         edge,
+            "win_prob":     f"{win_prob*100:.1f}%",
+            "confidence":   confidence,
+            "qualifies":    qualifies,
+            "verdict":      verdict,
+            "reason":       reason,
+            "bet_side":     bet_side if qualifies else None,
+            "books":        books_odds,
+            "best_book":    best_book,
+            "best_odds":    best_odds,
+            "proj_total":   pred['total_pred'],
         }
 
         scope_detail.append(entry)
         if qualifies:
             qualifying.append(entry)
-            print(f"  ✅ QUALIFYING BET: {entry['game']} — {bet_side} @ {best_odds} ({best_book})")
+            print(f"  ✅ BET: {entry['game']} — {bet_side} @ {best_odds} ({best_book})")
         else:
-            print(f"  ❌ {entry['game']} — {verdict}: {reason}")
+            print(f"  ❌ {entry['game']} — {reason}")
 
-    # ── Load existing results ──────────────────────────────
+    # ── Load / init results file ───────────────────────────
     os.makedirs("data", exist_ok=True)
     if os.path.exists(RESULTS_FILE):
         with open(RESULTS_FILE, "r") as f:
             results = json.load(f)
     else:
         results = {
-            "daily_log":  [],
-            "bets":       [],
+            "daily_log": [], "bets": [],
             "model_history": {
                 "model_info": {
-                    "data_range":        "2021-2026",
+                    "data_range":        "2022-2026",
                     "strategy":          "ATS (Against The Spread)",
                     "confidence_range":  "50-70",
                     "spread_edge_range": "3-7 pts vs Vegas line",
                     "stake_per_bet":     "2% bankroll",
+                    "books":             "TAB, Betr, PointsBet",
                     "do_not_bet":        "Edge >7pts, Confidence >70, Totals, Playoffs"
                 },
                 "backtest_results": {
@@ -481,18 +433,13 @@ def run_pipeline():
                     "2022-23": {"bets": 54, "wins": 33, "ats_accuracy": "61.1%", "roi": "+17.4%"},
                     "2023-24": {"bets": 52, "wins": 30, "ats_accuracy": "57.7%", "roi": "+10.8%"},
                     "2024-25": {"bets": 53, "wins": 34, "ats_accuracy": "64.2%", "roi": "+24.8%"},
-                    "overall": {
-                        "bets": 212,
-                        "ats_accuracy": "60.8%",
-                        "roi":          "+16.16%",
-                    }
+                    "overall": {"bets": 212, "ats_accuracy": "60.8%", "roi": "+16.16%"},
                 },
-                "live_season":    "2025-26",
-                "live_start_date": "2026-03-01",
+                "live_season":     "2025-26",
+                "live_start_date": "2026-03-21",
             }
         }
 
-    # ── Write today's log entry ───────────────────────────
     aest_date = datetime.now(AEST).strftime("%Y-%m-%d")
     day_num   = len(results["daily_log"]) + 1
 
@@ -505,18 +452,17 @@ def run_pipeline():
         "scope_detail":  scope_detail,
         "bets_flagged":  qualifying,
         "bets_placed":   0,
-        "note":          f"Day {day_num} — {len(scope_detail)} games scoped, {len(qualifying)} qualifying bets."
+        "note":          f"Day {day_num} — {len(scope_detail)} games scoped, {len(qualifying)} qualifying bets.",
     }
 
-    # Replace today's entry if already exists, else append
     existing = [e for e in results["daily_log"] if e["date"] != aest_date]
     results["daily_log"] = existing + [log_entry]
 
     with open(RESULTS_FILE, "w") as f:
         json.dump(results, f, indent=2)
 
-    print(f"\n✅ Results saved to {RESULTS_FILE}")
-    print(f"📊 {len(scope_detail)} games scoped, {len(qualifying)} qualifying bets")
+    print(f"\n✅ Saved to {RESULTS_FILE}")
+    print(f"📊 {len(scope_detail)} scoped, {len(qualifying)} qualifying")
     print("="*55 + "\n")
 
 
