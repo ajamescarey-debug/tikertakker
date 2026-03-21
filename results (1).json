@@ -1,0 +1,28 @@
+{
+  "daily_log": [],
+  "bets": [],
+  "model_history": {
+    "model_info": {
+      "data_range": "2021-2026",
+      "strategy": "ATS (Against The Spread)",
+      "confidence_range": "50-70",
+      "spread_edge_range": "3-7 pts vs Vegas line",
+      "stake_per_bet": "2% bankroll",
+      "books": "TAB, Betr, PointsBet",
+      "do_not_bet": "Edge >7pts, Confidence >70, Totals, Playoffs"
+    },
+    "backtest_results": {
+      "2021-22": { "bets": 53, "wins": 31, "ats_accuracy": "58.5%", "roi": "+11.2%" },
+      "2022-23": { "bets": 54, "wins": 33, "ats_accuracy": "61.1%", "roi": "+17.4%" },
+      "2023-24": { "bets": 52, "wins": 30, "ats_accuracy": "57.7%", "roi": "+10.8%" },
+      "2024-25": { "bets": 53, "wins": 34, "ats_accuracy": "64.2%", "roi": "+24.8%" },
+      "overall": {
+        "bets": 212,
+        "ats_accuracy": "60.8%",
+        "roi": "+16.16%"
+      }
+    },
+    "live_season": "2025-26",
+    "live_start_date": "2026-03-21"
+  }
+}

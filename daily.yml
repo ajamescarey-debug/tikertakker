@@ -1,0 +1,38 @@
+name: TikkerTakker Daily Pipeline
+
+on:
+  schedule:
+    # 6:15am AEST = 8:15pm UTC (previous day)
+    # Anchored to US ET game dates — catches all 3:30pm ET+ tip-offs
+    - cron: '15 20 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install nba_api pandas numpy scikit-learn requests pytz
+
+      - name: Run TikkerTakker pipeline
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python model.py
+
+      - name: Commit updated results
+        run: |
+          git config user.name "tikkertakker-bot"
+          git config user.email "bot@tikkertakker"
+          git add data/results.json
+          git diff --staged --quiet || git commit -m "Daily update: $(TZ='Australia/Melbourne' date +'%Y-%m-%d %H:%M AEST')"
+          git push

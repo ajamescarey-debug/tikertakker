@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIKKERTAKKER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #080c10;
+    --surface:  #0e1318;
+    --border:   #1a2230;
+    --accent:   #00e5ff;
+    --green:    #00ff9d;
+    --red:      #ff3d5a;
+    --amber:    #ffb300;
+    --muted:    #4a5568;
+    --text:     #c8d6e5;
+    --bright:   #f0f6ff;
+    --tab:      #005baa;
+    --betr:     #7c3aed;
+    --pbet:     #dc2626;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #080c10 0%, #0a1520 100%);
+  }
+
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 4px;
+    color: var(--bright);
+    line-height: 1;
+  }
+
+  .logo span {
+    color: var(--accent);
+  }
+
+  .header-meta {
+    text-align: right;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .status-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    margin-right: 6px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+  }
+
+  /* ── Nav tabs ── */
+  .nav {
+    display: flex;
+    gap: 2px;
+    padding: 16px 32px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-tab {
+    padding: 10px 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .nav-tab:hover  { color: var(--text); }
+  .nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ── Layout ── */
+  .main { padding: 28px 32px; max-width: 1400px; }
+
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── Stats strip ── */
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .stat-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    line-height: 1;
+    color: var(--bright);
+  }
+
+  .stat-value.green { color: var(--green); }
+  .stat-value.red   { color: var(--red); }
+  .stat-value.amber { color: var(--amber); }
+
+  /* ── Section headers ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: var(--bright);
+  }
+
+  .badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: rgba(0,229,255,0.1);
+    color: var(--accent);
+    border: 1px solid rgba(0,229,255,0.2);
+  }
+
+  /* ── Qualifying bets ── */
+  .bet-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--green);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+  }
+
+  .bet-card:hover { border-color: var(--green); }
+
+  .bet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .bet-game {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--bright);
+    letter-spacing: 1px;
+  }
+
+  .bet-verdict {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    background: rgba(0,255,157,0.1);
+    color: var(--green);
+    border: 1px solid rgba(0,255,157,0.3);
+    letter-spacing: 1px;
+  }
+
+  .bet-pick {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .bet-metrics {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 16px;
+  }
+
+  .metric {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .metric-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .metric-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 15px;
+    color: var(--bright);
+  }
+
+  .metric-value.highlight { color: var(--green); }
+
+  /* ── Odds comparison ── */
+  .odds-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .odds-book {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.02);
+    text-align: center;
+    transition: all 0.2s;
+  }
+
+  .odds-book.best {
+    border-color: var(--amber);
+    background: rgba(255,179,0,0.05);
+  }
+
+  .odds-book.best .book-odds { color: var(--amber); }
+
+  .book-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .book-spread {
+    font-size: 11px;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .book-odds {
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .book-tag {
+    font-size: 9px;
+    margin-top: 4px;
+  }
+
+  .tab-tag   { color: #4a9eff; }
+  .betr-tag  { color: #a78bfa; }
+  .pbet-tag  { color: #f87171; }
+  .best-tag  { color: var(--amber); font-weight: 500; }
+
+  /* ── All games table ── */
+  .games-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .games-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .games-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(26,34,48,0.6);
+    color: var(--text);
+    vertical-align: middle;
+  }
+
+  .games-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .verdict-bet {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: rgba(0,255,157,0.1);
+    color: var(--green);
+    border: 1px solid rgba(0,255,157,0.2);
+  }
+
+  .verdict-no {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+
+  /* ── P&L table ── */
+  .pnl-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .pnl-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pnl-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(26,34,48,0.6);
+    color: var(--text);
+  }
+
+  .pnl-win  { color: var(--green); }
+  .pnl-loss { color: var(--red); }
+
+  /* ── Backtest ── */
+  .backtest-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .bt-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  .bt-season {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .bt-stat {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(26,34,48,0.5);
+    font-size: 12px;
+  }
+
+  .bt-stat-label { color: var(--muted); }
+  .bt-stat-value { color: var(--bright); font-family: 'DM Mono', monospace; }
+  .bt-stat-value.pos { color: var(--green); }
+
+  /* ── Empty state ── */
+  .empty {
+    text-align: center;
+    padding: 48px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+  }
+
+  .empty-icon { font-size: 32px; margin-bottom: 12px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    .backtest-grid { grid-template-columns: repeat(2, 1fr); }
+    .main { padding: 16px; }
+    .header { padding: 16px; }
+    .nav { padding: 12px 16px 0; overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <div class="logo">TIKKER<span>TAKKER</span></div>
+    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px;">NBA ATS INTELLIGENCE · AUTOMATED</div>
+  </div>
+  <div class="header-meta">
+    <div><span class="status-dot"></span>LIVE</div>
+    <div id="last-run">LAST RUN: —</div>
+    <div id="au-time">—</div>
+  </div>
+</div>
+
+<div class="nav">
+  <div class="nav-tab active" onclick="showPage('qualifying')">🎯 Qualifying Bets</div>
+  <div class="nav-tab" onclick="showPage('allgames')">📋 All Games</div>
+  <div class="nav-tab" onclick="showPage('pnl')">💰 P&L Tracker</div>
+  <div class="nav-tab" onclick="showPage('backtest')">📊 Backtest</div>
+</div>
+
+<div class="main">
+
+  <!-- Stats strip -->
+  <div class="stats-strip" style="margin-top:24px;">
+    <div class="stat-card">
+      <div class="stat-label">Today's Bets</div>
+      <div class="stat-value green" id="stat-bets">—</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Games Scoped</div>
+      <div class="stat-value" id="stat-scoped">—</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Season Record</div>
+      <div class="stat-value" id="stat-record">—</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Season ROI</div>
+      <div class="stat-value" id="stat-roi">—</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Win Rate</div>
+      <div class="stat-value" id="stat-winrate">—</div>
+    </div>
+  </div>
+
+  <!-- Qualifying Bets Page -->
+  <div class="page active" id="page-qualifying">
+    <div class="section-header">
+      <div class="section-title">TODAY'S QUALIFYING BETS</div>
+      <div class="badge" id="qual-count">0 BETS</div>
+    </div>
+    <div id="qualifying-container">
+      <div class="empty">
+        <div class="empty-icon">🏀</div>
+        Loading today's analysis...
+      </div>
+    </div>
+  </div>
+
+  <!-- All Games Page -->
+  <div class="page" id="page-allgames">
+    <div class="section-header">
+      <div class="section-title">ALL GAMES SCOPED TODAY</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+      <table class="games-table">
+        <thead>
+          <tr>
+            <th>Game</th>
+            <th>Vegas Line</th>
+            <th>Model Spread</th>
+            <th>Edge</th>
+            <th>Win Prob</th>
+            <th>Confidence</th>
+            <th>Verdict</th>
+            <th>Reason</th>
+          </tr>
+        </thead>
+        <tbody id="allgames-body">
+          <tr><td colspan="8" style="text-align:center;color:var(--muted);padding:32px;">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- P&L Page -->
+  <div class="page" id="page-pnl">
+    <div class="section-header">
+      <div class="section-title">P&L TRACKER</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+      <table class="pnl-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Game</th>
+            <th>Pick</th>
+            <th>Book</th>
+            <th>Odds</th>
+            <th>Stake %</th>
+            <th>Result</th>
+            <th>P&L</th>
+          </tr>
+        </thead>
+        <tbody id="pnl-body">
+          <tr><td colspan="8" style="text-align:center;color:var(--muted);padding:32px;">No bets placed yet.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Backtest Page -->
+  <div class="page" id="page-backtest">
+    <div class="section-header">
+      <div class="section-title">BACKTEST RESULTS</div>
+      <div class="badge">2021 — 2025</div>
+    </div>
+    <div class="backtest-grid" id="backtest-grid">
+      <div class="empty"><div class="empty-icon">📊</div>Loading...</div>
+    </div>
+    <div class="section-header">
+      <div class="section-title">MODEL INFO</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px;" id="model-info">
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── Tab navigation ──────────────────────────────────────
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ── Book display names ──────────────────────────────────
+const BOOK_NAMES = { tab: 'TAB', betr: 'Betr', pointsbet: 'PointsBet' };
+const BOOK_TAGS  = { tab: 'tab-tag', betr: 'betr-tag', pointsbet: 'pbet-tag' };
+
+// ── Render qualifying bets ──────────────────────────────
+function renderQualifying(bets) {
+  const container = document.getElementById('qualifying-container');
+  document.getElementById('qual-count').textContent = `${bets.length} BET${bets.length !== 1 ? 'S' : ''}`;
+
+  if (!bets.length) {
+    container.innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">🔍</div>
+        No qualifying bets today — edge or confidence outside window.
+      </div>`;
+    return;
+  }
+
+  container.innerHTML = bets.map(bet => {
+    const books = bet.books || {};
+    const oddsHtml = Object.entries(books).map(([bk, data]) => {
+      const isBest = bk === bet.best_book;
+      return `
+        <div class="odds-book ${isBest ? 'best' : ''}">
+          <div class="book-name">${BOOK_NAMES[bk] || bk}</div>
+          <div class="book-spread">${data.spread > 0 ? '+' : ''}${data.spread}</div>
+          <div class="book-odds">$${data.odds ? data.odds.toFixed(2) : '—'}</div>
+          ${isBest ? '<div class="book-tag best-tag">★ BEST</div>' : `<div class="book-tag ${BOOK_TAGS[bk] || ''}">${BOOK_NAMES[bk] || bk}</div>`}
+        </div>`;
+    }).join('');
+
+    return `
+      <div class="bet-card">
+        <div class="bet-header">
+          <div class="bet-game">${bet.game}</div>
+          <div class="bet-verdict">✅ QUALIFYING BET</div>
+        </div>
+        <div class="bet-pick">📌 ${bet.bet_side || '—'}</div>
+        <div class="bet-metrics">
+          <div class="metric">
+            <div class="metric-label">Edge</div>
+            <div class="metric-value highlight">${bet.edge} pts</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Confidence</div>
+            <div class="metric-value highlight">${bet.confidence}/100</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Win Prob</div>
+            <div class="metric-value">${bet.win_prob}</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Model Spread</div>
+            <div class="metric-value">${bet.model_spread}</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Vegas Line</div>
+            <div class="metric-value">${bet.vegas_line}</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Proj Total</div>
+            <div class="metric-value">${bet.proj_total}</div>
+          </div>
+        </div>
+        <div style="margin-bottom:8px;font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;">BEST ODDS ACROSS BOOKS</div>
+        <div class="odds-row">${oddsHtml || '<div style="color:var(--muted);font-size:12px;">No AU odds available</div>'}</div>
+      </div>`;
+  }).join('');
+}
+
+// ── Render all games table ──────────────────────────────
+function renderAllGames(games) {
+  const tbody = document.getElementById('allgames-body');
+  if (!games.length) {
+    tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:32px;">No games scoped today.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = games.map(g => `
+    <tr>
+      <td style="font-weight:500;color:var(--bright);">${g.game}</td>
+      <td style="font-family:'DM Mono',monospace;">${g.vegas_line}</td>
+      <td style="font-family:'DM Mono',monospace;">${g.model_spread}</td>
+      <td style="font-family:'DM Mono',monospace;color:${g.edge >= 3 && g.edge <= 7 ? 'var(--green)' : 'var(--text)'};">${g.edge} pts</td>
+      <td style="font-family:'DM Mono',monospace;">${g.win_prob}</td>
+      <td style="font-family:'DM Mono',monospace;color:${g.confidence >= 50 && g.confidence <= 70 ? 'var(--green)' : 'var(--text)'};">${g.confidence}/100</td>
+      <td>${g.qualifies ? '<span class="verdict-bet">BET</span>' : '<span class="verdict-no">NO BET</span>'}</td>
+      <td style="color:var(--muted);font-size:11px;">${g.reason || '—'}</td>
+    </tr>`).join('');
+}
+
+// ── Render P&L ──────────────────────────────────────────
+function renderPnL(bets) {
+  const tbody = document.getElementById('pnl-body');
+  if (!bets.length) {
+    tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:32px;">No bets placed yet.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = bets.map(b => `
+    <tr>
+      <td style="font-family:'DM Mono',monospace;">${b.date}</td>
+      <td>${b.game}</td>
+      <td style="color:var(--accent);">${b.pick}</td>
+      <td>${b.book || '—'}</td>
+      <td style="font-family:'DM Mono',monospace;">$${b.odds ? b.odds.toFixed(2) : '—'}</td>
+      <td>${b.stake_pct ? (b.stake_pct * 100).toFixed(0) + '%' : '—'}</td>
+      <td class="${b.result === 'WIN' ? 'pnl-win' : b.result === 'LOSS' ? 'pnl-loss' : ''}">${b.result || 'PENDING'}</td>
+      <td class="${b.pnl > 0 ? 'pnl-win' : b.pnl < 0 ? 'pnl-loss' : ''}" style="font-family:'DM Mono',monospace;">${b.pnl != null ? (b.pnl > 0 ? '+' : '') + b.pnl.toFixed(1) + '%' : '—'}</td>
+    </tr>`).join('');
+}
+
+// ── Render backtest ─────────────────────────────────────
+function renderBacktest(data) {
+  const grid = document.getElementById('backtest-grid');
+  const seasons = ['2021-22', '2022-23', '2023-24', '2024-25'];
+  grid.innerHTML = seasons.map(s => {
+    const d = data[s] || {};
+    return `
+      <div class="bt-card">
+        <div class="bt-season">${s}</div>
+        <div class="bt-stat"><span class="bt-stat-label">Bets</span><span class="bt-stat-value">${d.bets || '—'}</span></div>
+        <div class="bt-stat"><span class="bt-stat-label">Wins</span><span class="bt-stat-value">${d.wins || '—'}</span></div>
+        <div class="bt-stat"><span class="bt-stat-label">ATS Accuracy</span><span class="bt-stat-value">${d.ats_accuracy || '—'}</span></div>
+        <div class="bt-stat"><span class="bt-stat-label">ROI</span><span class="bt-stat-value pos">${d.roi || '—'}</span></div>
+      </div>`;
+  }).join('');
+
+  // Overall card
+  const ov = data.overall || {};
+  grid.innerHTML += `
+    <div class="bt-card" style="border-color:var(--accent);">
+      <div class="bt-season" style="color:var(--accent);">OVERALL</div>
+      <div class="bt-stat"><span class="bt-stat-label">Total Bets</span><span class="bt-stat-value">${ov.bets || '—'}</span></div>
+      <div class="bt-stat"><span class="bt-stat-label">ATS Accuracy</span><span class="bt-stat-value">${ov.ats_accuracy || '—'}</span></div>
+      <div class="bt-stat"><span class="bt-stat-label">ROI</span><span class="bt-stat-value pos">${ov.roi || '—'}</span></div>
+    </div>`;
+}
+
+// ── Render model info ───────────────────────────────────
+function renderModelInfo(info) {
+  const el = document.getElementById('model-info');
+  el.innerHTML = Object.entries(info).map(([k, v]) => `
+    <div class="bt-stat">
+      <span class="bt-stat-label">${k.replace(/_/g, ' ').toUpperCase()}</span>
+      <span class="bt-stat-value">${v}</span>
+    </div>`).join('');
+}
+
+// ── Update season stats ─────────────────────────────────
+function updateStats(dailyLog, bets, todayLog) {
+  const scoped = todayLog ? todayLog.scope_detail?.length || 0 : 0;
+  const qualToday = todayLog ? todayLog.bets_flagged?.length || 0 : 0;
+
+  // Season stats from bets log
+  const placed = bets.filter(b => b.result);
+  const wins   = placed.filter(b => b.result === 'WIN').length;
+  const roi    = placed.length
+    ? (placed.reduce((s, b) => s + (b.pnl || 0), 0) / placed.length).toFixed(1)
+    : null;
+
+  document.getElementById('stat-bets').textContent    = qualToday;
+  document.getElementById('stat-scoped').textContent  = scoped;
+  document.getElementById('stat-record').textContent  = placed.length ? `${wins}-${placed.length - wins}` : '0-0';
+  document.getElementById('stat-roi').textContent     = roi != null ? `${roi > 0 ? '+' : ''}${roi}%` : '—';
+  document.getElementById('stat-winrate').textContent = placed.length ? `${((wins / placed.length) * 100).toFixed(0)}%` : '—';
+
+  // Colour ROI
+  if (roi != null) {
+    const el = document.getElementById('stat-roi');
+    el.className = 'stat-value ' + (roi > 0 ? 'green' : roi < 0 ? 'red' : '');
+  }
+}
+
+// ── Clock ───────────────────────────────────────────────
+function updateClock() {
+  const now = new Date().toLocaleString('en-AU', { timeZone: 'Australia/Melbourne', hour12: false });
+  document.getElementById('au-time').textContent = now + ' AEST';
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// ── Main load ───────────────────────────────────────────
+async function loadData() {
+  try {
+    const res  = await fetch('data/results.json?t=' + Date.now());
+    const data = await res.json();
+
+    const log     = data.daily_log || [];
+    const bets    = data.bets      || [];
+    const history = data.model_history || {};
+
+    // Get today's AEST date
+    const todayAEST = new Date().toLocaleDateString('en-CA', { timeZone: 'Australia/Melbourne' });
+    const todayLog  = log.find(d => d.date === todayAEST) || log[log.length - 1];
+
+    if (todayLog) {
+      document.getElementById('last-run').textContent =
+        `LAST RUN: ${todayLog.date} ${todayLog.run_time_aest || ''}`;
+      renderQualifying(todayLog.bets_flagged || []);
+      renderAllGames(todayLog.scope_detail   || []);
+    }
+
+    updateStats(log, bets, todayLog);
+    renderPnL(bets);
+
+    if (history.backtest_results) renderBacktest(history.backtest_results);
+    if (history.model_info)       renderModelInfo(history.model_info);
+
+  } catch (e) {
+    console.error('Failed to load results.json:', e);
+    document.getElementById('qualifying-container').innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">⚠️</div>
+        Could not load results. Pipeline may not have run yet.
+      </div>`;
+  }
+}
+
+loadData();
+</script>
+</body>
+</html>
