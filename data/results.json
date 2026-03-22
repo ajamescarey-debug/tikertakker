@@ -217,6 +217,91 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 2 \u2014 4 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-03-23",
+      "us_game_date": "2026-03-22",
+      "day_number": 3,
+      "run_time_aest": "07:59",
+      "games_scoped": [
+        "DEN vs POR",
+        "SAC vs BKN",
+        "NYK vs WAS"
+      ],
+      "scope_detail": [
+        {
+          "game": "DEN vs POR",
+          "home": "DEN",
+          "away": "POR",
+          "vegas_line": "DEN -8.0",
+          "model_spread": "DEN +4.9",
+          "edge": 12.9,
+          "win_prob": "68.8%",
+          "confidence": 37.6,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 12.9pts outside 3-7 range & Confidence 37.6 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -8.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 230.2
+        },
+        {
+          "game": "SAC vs BKN",
+          "home": "SAC",
+          "away": "BKN",
+          "vegas_line": "SAC -6.5",
+          "model_spread": "SAC +8.0",
+          "edge": 14.5,
+          "win_prob": "72.8%",
+          "confidence": 45.6,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 14.5pts outside 3-7 range & Confidence 45.6 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -6.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 229.1
+        },
+        {
+          "game": "NYK vs WAS",
+          "home": "NYK",
+          "away": "WAS",
+          "vegas_line": "NYK -21.5",
+          "model_spread": "NYK +7.8",
+          "edge": 29.3,
+          "win_prob": "75.3%",
+          "confidence": 50.5,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 29.3pts outside 3-7 range",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -21.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 226.6
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 3 \u2014 3 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
