@@ -302,6 +302,139 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 3 \u2014 3 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-03-24",
+      "us_game_date": "2026-03-23",
+      "day_number": 4,
+      "run_time_aest": "08:52",
+      "games_scoped": [
+        "DET vs LAL",
+        "ORL vs IND",
+        "MIA vs SAS",
+        "PHI vs OKC",
+        "ATL vs MEM"
+      ],
+      "scope_detail": [
+        {
+          "game": "DET vs LAL",
+          "home": "DET",
+          "away": "LAL",
+          "vegas_line": "DET +1.5",
+          "model_spread": "DET +5.1",
+          "edge": 3.6,
+          "win_prob": "66.6%",
+          "confidence": 33.2,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Confidence 33.2 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 1.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 226.6
+        },
+        {
+          "game": "ORL vs IND",
+          "home": "ORL",
+          "away": "IND",
+          "vegas_line": "ORL -12.5",
+          "model_spread": "ORL +5.2",
+          "edge": 17.7,
+          "win_prob": "66.3%",
+          "confidence": 32.6,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 17.7pts outside 3-7 range & Confidence 32.6 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -12.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 227.4
+        },
+        {
+          "game": "MIA vs SAS",
+          "home": "MIA",
+          "away": "SAS",
+          "vegas_line": "MIA +3.5",
+          "model_spread": "MIA +3.5",
+          "edge": 0.0,
+          "win_prob": "63.2%",
+          "confidence": 26.4,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 0.0pts outside 3-7 range & Confidence 26.4 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 3.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 234.5
+        },
+        {
+          "game": "PHI vs OKC",
+          "home": "PHI",
+          "away": "OKC",
+          "vegas_line": "PHI +16.0",
+          "model_spread": "PHI -1.6",
+          "edge": 17.6,
+          "win_prob": "43.7%",
+          "confidence": 12.6,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 17.6pts outside 3-7 range & Confidence 12.6 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 16.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 232.3
+        },
+        {
+          "game": "ATL vs MEM",
+          "home": "ATL",
+          "away": "MEM",
+          "vegas_line": "ATL -13.5",
+          "model_spread": "ATL +4.6",
+          "edge": 18.1,
+          "win_prob": "62.5%",
+          "confidence": 25.0,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 18.1pts outside 3-7 range & Confidence 25.0 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -13.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 230.0
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 4 \u2014 5 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
