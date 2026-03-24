@@ -435,6 +435,67 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 4 \u2014 5 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-03-25",
+      "us_game_date": "2026-03-24",
+      "day_number": 5,
+      "run_time_aest": "09:00",
+      "games_scoped": [
+        "CHA vs SAC",
+        "NYK vs NOP"
+      ],
+      "scope_detail": [
+        {
+          "game": "CHA vs SAC",
+          "home": "CHA",
+          "away": "SAC",
+          "vegas_line": "CHA -17.5",
+          "model_spread": "CHA -1.4",
+          "edge": 16.1,
+          "win_prob": "46.6%",
+          "confidence": 6.8,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 16.1pts outside 3-7 range & Confidence 6.8 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -17.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 229.3
+        },
+        {
+          "game": "NYK vs NOP",
+          "home": "NYK",
+          "away": "NOP",
+          "vegas_line": "NYK -8.5",
+          "model_spread": "NYK +6.4",
+          "edge": 14.9,
+          "win_prob": "71.6%",
+          "confidence": 43.1,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 14.9pts outside 3-7 range & Confidence 43.1 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -8.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 225.0
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 5 \u2014 2 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
