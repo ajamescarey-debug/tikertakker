@@ -496,6 +496,139 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 5 \u2014 2 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-03-26",
+      "us_game_date": "2026-03-25",
+      "day_number": 6,
+      "run_time_aest": "09:03",
+      "games_scoped": [
+        "DET vs ATL",
+        "PHI vs CHI",
+        "IND vs LAL",
+        "BOS vs OKC",
+        "CLE vs MIA"
+      ],
+      "scope_detail": [
+        {
+          "game": "DET vs ATL",
+          "home": "DET",
+          "away": "ATL",
+          "vegas_line": "DET -2.0",
+          "model_spread": "DET +6.3",
+          "edge": 8.3,
+          "win_prob": "70.6%",
+          "confidence": 41.2,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 8.3pts outside 3-7 range & Confidence 41.2 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -2.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 228.6
+        },
+        {
+          "game": "PHI vs CHI",
+          "home": "PHI",
+          "away": "CHI",
+          "vegas_line": "PHI -6.5",
+          "model_spread": "PHI +3.5",
+          "edge": 10.0,
+          "win_prob": "63.3%",
+          "confidence": 26.7,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 10.0pts outside 3-7 range & Confidence 26.7 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -6.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 230.4
+        },
+        {
+          "game": "IND vs LAL",
+          "home": "IND",
+          "away": "LAL",
+          "vegas_line": "IND +8.5",
+          "model_spread": "IND +0.6",
+          "edge": 7.9,
+          "win_prob": "54.2%",
+          "confidence": 8.3,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 7.9pts outside 3-7 range & Confidence 8.3 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 8.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 229.5
+        },
+        {
+          "game": "BOS vs OKC",
+          "home": "BOS",
+          "away": "OKC",
+          "vegas_line": "BOS +2.5",
+          "model_spread": "BOS -0.7",
+          "edge": 3.2,
+          "win_prob": "47.3%",
+          "confidence": 5.4,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Confidence 5.4 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 2.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 227.9
+        },
+        {
+          "game": "CLE vs MIA",
+          "home": "CLE",
+          "away": "MIA",
+          "vegas_line": "CLE -2.5",
+          "model_spread": "CLE +0.4",
+          "edge": 2.9,
+          "win_prob": "55.0%",
+          "confidence": 10.0,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 2.9pts outside 3-7 range & Confidence 10.0 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -2.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 229.7
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 6 \u2014 5 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
