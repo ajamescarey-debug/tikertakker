@@ -714,6 +714,91 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 7 \u2014 3 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-03-28",
+      "us_game_date": "2026-03-27",
+      "day_number": 8,
+      "run_time_aest": "08:54",
+      "games_scoped": [
+        "IND vs LAC",
+        "BOS vs ATL",
+        "CLE vs MIA"
+      ],
+      "scope_detail": [
+        {
+          "game": "IND vs LAC",
+          "home": "IND",
+          "away": "LAC",
+          "vegas_line": "IND +9.5",
+          "model_spread": "IND -0.8",
+          "edge": 10.3,
+          "win_prob": "50.1%",
+          "confidence": 0.1,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 10.3pts outside 3-7 range & Confidence 0.1 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 9.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 232.0
+        },
+        {
+          "game": "BOS vs ATL",
+          "home": "BOS",
+          "away": "ATL",
+          "vegas_line": "BOS -5.0",
+          "model_spread": "BOS +6.2",
+          "edge": 11.2,
+          "win_prob": "72.0%",
+          "confidence": 44.1,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 11.2pts outside 3-7 range & Confidence 44.1 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -5.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 226.3
+        },
+        {
+          "game": "CLE vs MIA",
+          "home": "CLE",
+          "away": "MIA",
+          "vegas_line": "CLE -5.5",
+          "model_spread": "CLE +0.4",
+          "edge": 5.9,
+          "win_prob": "55.0%",
+          "confidence": 10.0,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Confidence 10.0 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -5.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 229.7
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 8 \u2014 3 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
