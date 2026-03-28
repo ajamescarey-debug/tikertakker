@@ -799,6 +799,91 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 8 \u2014 3 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-03-29",
+      "us_game_date": "2026-03-28",
+      "day_number": 9,
+      "run_time_aest": "08:05",
+      "games_scoped": [
+        "MIN vs DET",
+        "CHA vs PHI",
+        "ATL vs SAC"
+      ],
+      "scope_detail": [
+        {
+          "game": "MIN vs DET",
+          "home": "MIN",
+          "away": "DET",
+          "vegas_line": "MIN +1.5",
+          "model_spread": "MIN +2.1",
+          "edge": 0.6,
+          "win_prob": "59.8%",
+          "confidence": 19.5,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 0.6pts outside 3-7 range & Confidence 19.5 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 1.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 232.4
+        },
+        {
+          "game": "CHA vs PHI",
+          "home": "CHA",
+          "away": "PHI",
+          "vegas_line": "CHA -6.5",
+          "model_spread": "CHA -3.6",
+          "edge": 2.9,
+          "win_prob": "37.6%",
+          "confidence": 24.7,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 2.9pts outside 3-7 range & Confidence 24.7 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -6.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 227.9
+        },
+        {
+          "game": "ATL vs SAC",
+          "home": "ATL",
+          "away": "SAC",
+          "vegas_line": "ATL -14.5",
+          "model_spread": "ATL +2.0",
+          "edge": 16.5,
+          "win_prob": "58.9%",
+          "confidence": 17.9,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 16.5pts outside 3-7 range & Confidence 17.9 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -14.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 228.8
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 9 \u2014 3 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
