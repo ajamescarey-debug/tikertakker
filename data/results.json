@@ -1041,6 +1041,67 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 10 \u2014 6 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-03-31",
+      "us_game_date": "2026-03-30",
+      "day_number": 11,
+      "run_time_aest": "09:05",
+      "games_scoped": [
+        "MIA vs PHI",
+        "ATL vs BOS"
+      ],
+      "scope_detail": [
+        {
+          "game": "MIA vs PHI",
+          "home": "MIA",
+          "away": "PHI",
+          "vegas_line": "MIA +2.0",
+          "model_spread": "MIA +4.2",
+          "edge": 2.2,
+          "win_prob": "64.1%",
+          "confidence": 28.3,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 2.2pts outside 3-7 range & Confidence 28.3 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 2.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 227.3
+        },
+        {
+          "game": "ATL vs BOS",
+          "home": "ATL",
+          "away": "BOS",
+          "vegas_line": "ATL -2.5",
+          "model_spread": "ATL -1.0",
+          "edge": 1.5,
+          "win_prob": "46.2%",
+          "confidence": 7.6,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 1.5pts outside 3-7 range & Confidence 7.6 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -2.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 231.9
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 11 \u2014 2 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
