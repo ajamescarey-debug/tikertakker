@@ -1102,6 +1102,17 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 11 \u2014 2 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-04-01",
+      "us_game_date": "2026-03-31",
+      "day_number": 12,
+      "run_time_aest": "09:04",
+      "games_scoped": [],
+      "scope_detail": [],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 12 \u2014 0 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
