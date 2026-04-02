@@ -1198,6 +1198,67 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 13 \u2014 3 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-04-03",
+      "us_game_date": "2026-04-02",
+      "day_number": 14,
+      "run_time_aest": "09:01",
+      "games_scoped": [
+        "CHA vs PHX",
+        "DET vs MIN"
+      ],
+      "scope_detail": [
+        {
+          "game": "CHA vs PHX",
+          "home": "CHA",
+          "away": "PHX",
+          "vegas_line": "CHA -6.0",
+          "model_spread": "CHA -2.5",
+          "edge": 3.5,
+          "win_prob": "42.4%",
+          "confidence": 15.1,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Confidence 15.1 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -6.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 228.5
+        },
+        {
+          "game": "DET vs MIN",
+          "home": "DET",
+          "away": "MIN",
+          "vegas_line": "DET -5.5",
+          "model_spread": "DET +3.0",
+          "edge": 8.5,
+          "win_prob": "59.9%",
+          "confidence": 19.7,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 8.5pts outside 3-7 range & Confidence 19.7 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -5.5,
+              "odds": 1.95
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.95,
+          "proj_total": 225.8
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 14 \u2014 2 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
