@@ -1259,6 +1259,115 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 14 \u2014 2 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-04-04",
+      "us_game_date": "2026-04-03",
+      "day_number": 15,
+      "run_time_aest": "08:53",
+      "games_scoped": [
+        "CHA vs IND",
+        "PHI vs MIN",
+        "BKN vs ATL",
+        "NYK vs CHI"
+      ],
+      "scope_detail": [
+        {
+          "game": "CHA vs IND",
+          "home": "CHA",
+          "away": "IND",
+          "vegas_line": "CHA -15.5",
+          "model_spread": "CHA -0.2",
+          "edge": 15.3,
+          "win_prob": "48.6%",
+          "confidence": 2.9,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 15.3pts outside 3-7 range & Confidence 2.9 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -15.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 227.2
+        },
+        {
+          "game": "PHI vs MIN",
+          "home": "PHI",
+          "away": "MIN",
+          "vegas_line": "PHI -4.0",
+          "model_spread": "PHI +2.0",
+          "edge": 6.0,
+          "win_prob": "58.1%",
+          "confidence": 16.1,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Confidence 16.1 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -4.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 227.9
+        },
+        {
+          "game": "BKN vs ATL",
+          "home": "BKN",
+          "away": "ATL",
+          "vegas_line": "BKN +17.0",
+          "model_spread": "BKN -3.9",
+          "edge": 20.9,
+          "win_prob": "36.1%",
+          "confidence": 27.8,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 20.9pts outside 3-7 range & Confidence 27.8 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 17.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 229.3
+        },
+        {
+          "game": "NYK vs CHI",
+          "home": "NYK",
+          "away": "CHI",
+          "vegas_line": "NYK -14.0",
+          "model_spread": "NYK +0.6",
+          "edge": 14.6,
+          "win_prob": "51.3%",
+          "confidence": 2.6,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 14.6pts outside 3-7 range & Confidence 2.6 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -14.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 227.0
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 15 \u2014 4 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
