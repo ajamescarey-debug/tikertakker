@@ -1453,6 +1453,139 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 16 \u2014 3 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-04-06",
+      "us_game_date": "2026-04-05",
+      "day_number": 17,
+      "run_time_aest": "06:50",
+      "games_scoped": [
+        "CLE vs IND",
+        "MIN vs CHA",
+        "NOP vs ORL",
+        "OKC vs UTA",
+        "DAL vs LAL"
+      ],
+      "scope_detail": [
+        {
+          "game": "CLE vs IND",
+          "home": "CLE",
+          "away": "IND",
+          "vegas_line": "CLE -16.5",
+          "model_spread": "CLE +5.5",
+          "edge": 22.0,
+          "win_prob": "69.7%",
+          "confidence": 39.4,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 22.0pts outside 3-7 range & Confidence 39.4 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -16.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 227.2
+        },
+        {
+          "game": "MIN vs CHA",
+          "home": "MIN",
+          "away": "CHA",
+          "vegas_line": "MIN +3.5",
+          "model_spread": "MIN +7.8",
+          "edge": 4.3,
+          "win_prob": "72.2%",
+          "confidence": 44.5,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Confidence 44.5 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 3.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 231.4
+        },
+        {
+          "game": "NOP vs ORL",
+          "home": "NOP",
+          "away": "ORL",
+          "vegas_line": "NOP +6.0",
+          "model_spread": "NOP -3.3",
+          "edge": 9.3,
+          "win_prob": "38.9%",
+          "confidence": 22.3,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 9.3pts outside 3-7 range & Confidence 22.3 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 6.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 230.7
+        },
+        {
+          "game": "OKC vs UTA",
+          "home": "OKC",
+          "away": "UTA",
+          "vegas_line": "OKC -24.0",
+          "model_spread": "OKC +12.0",
+          "edge": 36.0,
+          "win_prob": "85.0%",
+          "confidence": 70.0,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 36.0pts outside 3-7 range",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -24.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 228.5
+        },
+        {
+          "game": "DAL vs LAL",
+          "home": "DAL",
+          "away": "LAL",
+          "vegas_line": "DAL +1.5",
+          "model_spread": "DAL +3.2",
+          "edge": 1.7,
+          "win_prob": "61.0%",
+          "confidence": 22.1,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 1.7pts outside 3-7 range & Confidence 22.1 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 1.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 226.9
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 17 \u2014 5 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
