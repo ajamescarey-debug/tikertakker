@@ -1586,6 +1586,67 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 17 \u2014 5 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-04-07",
+      "us_game_date": "2026-04-06",
+      "day_number": 18,
+      "run_time_aest": "06:56",
+      "games_scoped": [
+        "ATL vs NYK",
+        "ORL vs DET"
+      ],
+      "scope_detail": [
+        {
+          "game": "ATL vs NYK",
+          "home": "ATL",
+          "away": "NYK",
+          "vegas_line": "ATL -1.5",
+          "model_spread": "ATL +1.1",
+          "edge": 2.6,
+          "win_prob": "51.8%",
+          "confidence": 3.5,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 2.6pts outside 3-7 range & Confidence 3.5 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -1.5,
+              "odds": 1.95
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.95,
+          "proj_total": 230.8
+        },
+        {
+          "game": "ORL vs DET",
+          "home": "ORL",
+          "away": "DET",
+          "vegas_line": "ORL +1.5",
+          "model_spread": "ORL +0.8",
+          "edge": 0.7,
+          "win_prob": "53.9%",
+          "confidence": 7.7,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 0.7pts outside 3-7 range & Confidence 7.7 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 1.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 230.3
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 18 \u2014 2 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
