@@ -1647,6 +1647,115 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 18 \u2014 2 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-04-08",
+      "us_game_date": "2026-04-07",
+      "day_number": 19,
+      "run_time_aest": "07:04",
+      "games_scoped": [
+        "WAS vs CHI",
+        "IND vs MIN",
+        "BKN vs MIL",
+        "TOR vs MIA"
+      ],
+      "scope_detail": [
+        {
+          "game": "WAS vs CHI",
+          "home": "WAS",
+          "away": "CHI",
+          "vegas_line": "WAS +6.0",
+          "model_spread": "WAS -4.6",
+          "edge": 10.6,
+          "win_prob": "34.0%",
+          "confidence": 32.0,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 10.6pts outside 3-7 range & Confidence 32.0 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 6.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 229.5
+        },
+        {
+          "game": "IND vs MIN",
+          "home": "IND",
+          "away": "MIN",
+          "vegas_line": "IND +12.5",
+          "model_spread": "IND -1.4",
+          "edge": 13.9,
+          "win_prob": "46.9%",
+          "confidence": 6.1,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 13.9pts outside 3-7 range & Confidence 6.1 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 12.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 228.7
+        },
+        {
+          "game": "BKN vs MIL",
+          "home": "BKN",
+          "away": "MIL",
+          "vegas_line": "BKN +2.0",
+          "model_spread": "BKN -5.0",
+          "edge": 7.0,
+          "win_prob": "32.5%",
+          "confidence": 35.0,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Confidence 35.0 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 2.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 229.3
+        },
+        {
+          "game": "TOR vs MIA",
+          "home": "TOR",
+          "away": "MIA",
+          "vegas_line": "TOR -1.5",
+          "model_spread": "TOR -2.9",
+          "edge": 1.4,
+          "win_prob": "42.2%",
+          "confidence": 15.6,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 1.4pts outside 3-7 range & Confidence 15.6 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -1.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 231.5
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 19 \u2014 4 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
