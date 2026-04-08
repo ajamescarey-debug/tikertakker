@@ -1756,6 +1756,91 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 19 \u2014 4 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-04-09",
+      "us_game_date": "2026-04-08",
+      "day_number": 20,
+      "run_time_aest": "07:02",
+      "games_scoped": [
+        "CLE vs ATL",
+        "DET vs MIL",
+        "ORL vs MIN"
+      ],
+      "scope_detail": [
+        {
+          "game": "CLE vs ATL",
+          "home": "CLE",
+          "away": "ATL",
+          "vegas_line": "CLE -3.0",
+          "model_spread": "CLE +4.8",
+          "edge": 7.8,
+          "win_prob": "68.8%",
+          "confidence": 37.6,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 7.8pts outside 3-7 range & Confidence 37.6 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -3.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 229.6
+        },
+        {
+          "game": "DET vs MIL",
+          "home": "DET",
+          "away": "MIL",
+          "vegas_line": "DET -20.5",
+          "model_spread": "DET +5.2",
+          "edge": 25.7,
+          "win_prob": "67.2%",
+          "confidence": 34.3,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 25.7pts outside 3-7 range & Confidence 34.3 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -20.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 228.6
+        },
+        {
+          "game": "ORL vs MIN",
+          "home": "ORL",
+          "away": "MIN",
+          "vegas_line": "ORL -11.0",
+          "model_spread": "ORL +1.2",
+          "edge": 12.2,
+          "win_prob": "53.9%",
+          "confidence": 7.8,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 12.2pts outside 3-7 range & Confidence 7.8 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -11.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 227.0
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 20 \u2014 3 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
