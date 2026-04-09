@@ -1841,6 +1841,115 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 20 \u2014 3 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-04-10",
+      "us_game_date": "2026-04-09",
+      "day_number": 21,
+      "run_time_aest": "07:04",
+      "games_scoped": [
+        "WAS vs CHI",
+        "TOR vs MIA",
+        "NYK vs BOS",
+        "BKN vs IND"
+      ],
+      "scope_detail": [
+        {
+          "game": "WAS vs CHI",
+          "home": "WAS",
+          "away": "CHI",
+          "vegas_line": "WAS +6.5",
+          "model_spread": "WAS -4.6",
+          "edge": 11.1,
+          "win_prob": "34.0%",
+          "confidence": 32.0,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 11.1pts outside 3-7 range & Confidence 32.0 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 6.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 229.5
+        },
+        {
+          "game": "TOR vs MIA",
+          "home": "TOR",
+          "away": "MIA",
+          "vegas_line": "TOR -4.0",
+          "model_spread": "TOR -2.9",
+          "edge": 1.1,
+          "win_prob": "42.2%",
+          "confidence": 15.6,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 1.1pts outside 3-7 range & Confidence 15.6 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -4.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 231.5
+        },
+        {
+          "game": "NYK vs BOS",
+          "home": "NYK",
+          "away": "BOS",
+          "vegas_line": "NYK -6.0",
+          "model_spread": "NYK -1.1",
+          "edge": 4.9,
+          "win_prob": "44.0%",
+          "confidence": 12.0,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Confidence 12.0 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -6.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 230.1
+        },
+        {
+          "game": "BKN vs IND",
+          "home": "BKN",
+          "away": "IND",
+          "vegas_line": "BKN +4.5",
+          "model_spread": "BKN -3.2",
+          "edge": 7.7,
+          "win_prob": "37.1%",
+          "confidence": 25.8,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 7.7pts outside 3-7 range & Confidence 25.8 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 4.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 226.9
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 21 \u2014 4 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
