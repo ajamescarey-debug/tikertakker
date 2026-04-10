@@ -1950,6 +1950,163 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 21 \u2014 4 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-04-11",
+      "us_game_date": "2026-04-10",
+      "day_number": 22,
+      "run_time_aest": "06:56",
+      "games_scoped": [
+        "ATL vs CLE",
+        "CHA vs DET",
+        "WAS vs MIA",
+        "BOS vs NOP",
+        "IND vs PHI",
+        "NYK vs TOR"
+      ],
+      "scope_detail": [
+        {
+          "game": "ATL vs CLE",
+          "home": "ATL",
+          "away": "CLE",
+          "vegas_line": "ATL -8.0",
+          "model_spread": "ATL +0.3",
+          "edge": 8.3,
+          "win_prob": "50.1%",
+          "confidence": 0.3,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 8.3pts outside 3-7 range & Confidence 0.3 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -8.0,
+              "odds": 1.95
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.95,
+          "proj_total": 228.6
+        },
+        {
+          "game": "CHA vs DET",
+          "home": "CHA",
+          "away": "DET",
+          "vegas_line": "CHA -5.5",
+          "model_spread": "CHA -4.7",
+          "edge": 0.8,
+          "win_prob": "35.9%",
+          "confidence": 28.2,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 0.8pts outside 3-7 range & Confidence 28.2 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -5.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 230.1
+        },
+        {
+          "game": "WAS vs MIA",
+          "home": "WAS",
+          "away": "MIA",
+          "vegas_line": "WAS +16.5",
+          "model_spread": "WAS -7.1",
+          "edge": 23.6,
+          "win_prob": "27.0%",
+          "confidence": 46.1,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 23.6pts outside 3-7 range & Confidence 46.1 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 16.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 229.9
+        },
+        {
+          "game": "BOS vs NOP",
+          "home": "BOS",
+          "away": "NOP",
+          "vegas_line": "BOS -16.5",
+          "model_spread": "BOS +10.1",
+          "edge": 26.6,
+          "win_prob": "82.7%",
+          "confidence": 65.3,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 26.6pts outside 3-7 range",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -16.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 224.0
+        },
+        {
+          "game": "IND vs PHI",
+          "home": "IND",
+          "away": "PHI",
+          "vegas_line": "IND +15.5",
+          "model_spread": "IND -0.9",
+          "edge": 16.4,
+          "win_prob": "48.7%",
+          "confidence": 2.5,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 16.4pts outside 3-7 range & Confidence 2.5 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 15.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 229.9
+        },
+        {
+          "game": "NYK vs TOR",
+          "home": "NYK",
+          "away": "TOR",
+          "vegas_line": "NYK -6.0",
+          "model_spread": "NYK +3.5",
+          "edge": 9.5,
+          "win_prob": "60.6%",
+          "confidence": 21.2,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 9.5pts outside 3-7 range & Confidence 21.2 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -6.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 225.1
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 22 \u2014 6 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
