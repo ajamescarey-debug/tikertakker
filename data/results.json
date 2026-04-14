@@ -2310,6 +2310,43 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 25 \u2014 0 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-04-15",
+      "us_game_date": "2026-04-14",
+      "day_number": 26,
+      "run_time_aest": "07:07",
+      "games_scoped": [
+        "CHA vs MIA"
+      ],
+      "scope_detail": [
+        {
+          "game": "CHA vs MIA",
+          "home": "CHA",
+          "away": "MIA",
+          "vegas_line": "CHA -6.0",
+          "model_spread": "CHA -5.3",
+          "edge": 0.7,
+          "win_prob": "33.4%",
+          "confidence": 33.2,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 0.7pts outside 3-7 range & Confidence 33.2 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -6.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 229.7
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 26 \u2014 1 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
