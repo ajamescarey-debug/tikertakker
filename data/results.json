@@ -2432,6 +2432,17 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 29 \u2014 1 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-04-19",
+      "us_game_date": "2026-04-18",
+      "day_number": 30,
+      "run_time_aest": "06:54",
+      "games_scoped": [],
+      "scope_detail": [],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 30 \u2014 0 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
