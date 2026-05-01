@@ -2575,6 +2575,67 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 42 \u2014 0 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-05-02",
+      "us_game_date": "2026-05-01",
+      "day_number": 43,
+      "run_time_aest": "07:08",
+      "games_scoped": [
+        "ORL vs DET",
+        "TOR vs CLE"
+      ],
+      "scope_detail": [
+        {
+          "game": "ORL vs DET",
+          "home": "ORL",
+          "away": "DET",
+          "vegas_line": "ORL +3.5",
+          "model_spread": "ORL +0.8",
+          "edge": 2.7,
+          "win_prob": "53.9%",
+          "confidence": 7.7,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 2.7pts outside 3-7 range & Confidence 7.7 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 3.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 230.3
+        },
+        {
+          "game": "TOR vs CLE",
+          "home": "TOR",
+          "away": "CLE",
+          "vegas_line": "TOR +4.5",
+          "model_spread": "TOR -0.8",
+          "edge": 5.3,
+          "win_prob": "47.1%",
+          "confidence": 5.8,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Confidence 5.8 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 4.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 230.9
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 43 \u2014 2 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
