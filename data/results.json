@@ -2647,6 +2647,43 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 44 \u2014 0 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-05-04",
+      "us_game_date": "2026-05-03",
+      "day_number": 45,
+      "run_time_aest": "07:03",
+      "games_scoped": [
+        "CLE vs TOR"
+      ],
+      "scope_detail": [
+        {
+          "game": "CLE vs TOR",
+          "home": "CLE",
+          "away": "TOR",
+          "vegas_line": "CLE -8.5",
+          "model_spread": "CLE +5.9",
+          "edge": 14.4,
+          "win_prob": "71.3%",
+          "confidence": 42.7,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 14.4pts outside 3-7 range & Confidence 42.7 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -8.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 227.3
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 45 \u2014 1 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
