@@ -2695,6 +2695,43 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 46 \u2014 0 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-05-06",
+      "us_game_date": "2026-05-05",
+      "day_number": 47,
+      "run_time_aest": "07:14",
+      "games_scoped": [
+        "DET vs CLE"
+      ],
+      "scope_detail": [
+        {
+          "game": "DET vs CLE",
+          "home": "DET",
+          "away": "CLE",
+          "vegas_line": "DET -3.5",
+          "model_spread": "DET +4.1",
+          "edge": 7.6,
+          "win_prob": "61.9%",
+          "confidence": 23.8,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 7.6pts outside 3-7 range & Confidence 23.8 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -3.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 228.1
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 47 \u2014 1 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
