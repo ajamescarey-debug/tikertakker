@@ -2806,6 +2806,43 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 49 \u2014 1 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-05-09",
+      "us_game_date": "2026-05-08",
+      "day_number": 50,
+      "run_time_aest": "07:16",
+      "games_scoped": [
+        "PHI vs NYK"
+      ],
+      "scope_detail": [
+        {
+          "game": "PHI vs NYK",
+          "home": "PHI",
+          "away": "NYK",
+          "vegas_line": "PHI -3.0",
+          "model_spread": "PHI +3.8",
+          "edge": 6.8,
+          "win_prob": "61.7%",
+          "confidence": 23.4,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Confidence 23.4 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -3.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 232.5
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 50 \u2014 1 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
