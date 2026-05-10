@@ -2854,6 +2854,43 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 51 \u2014 0 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-05-11",
+      "us_game_date": "2026-05-10",
+      "day_number": 52,
+      "run_time_aest": "07:06",
+      "games_scoped": [
+        "MIN vs SAS"
+      ],
+      "scope_detail": [
+        {
+          "game": "MIN vs SAS",
+          "home": "MIN",
+          "away": "SAS",
+          "vegas_line": "MIN +5.0",
+          "model_spread": "MIN +2.4",
+          "edge": 2.6,
+          "win_prob": "60.6%",
+          "confidence": 21.1,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 2.6pts outside 3-7 range & Confidence 21.1 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 5.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 237.4
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 52 \u2014 1 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
