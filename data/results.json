@@ -2935,6 +2935,43 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 56 \u2014 0 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-05-16",
+      "us_game_date": "2026-05-15",
+      "day_number": 57,
+      "run_time_aest": "07:19",
+      "games_scoped": [
+        "CLE vs DET"
+      ],
+      "scope_detail": [
+        {
+          "game": "CLE vs DET",
+          "home": "CLE",
+          "away": "DET",
+          "vegas_line": "CLE -4.0",
+          "model_spread": "CLE +1.0",
+          "edge": 5.0,
+          "win_prob": "57.7%",
+          "confidence": 15.4,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Confidence 15.4 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -4.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 230.1
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 57 \u2014 1 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
