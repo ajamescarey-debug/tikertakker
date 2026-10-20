@@ -4699,6 +4699,43 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 214 \u2014 0 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-10-21",
+      "us_game_date": "2026-10-20",
+      "day_number": 215,
+      "run_time_aest": "10:11",
+      "games_scoped": [
+        "NYK vs PHI"
+      ],
+      "scope_detail": [
+        {
+          "game": "NYK vs PHI",
+          "home": "NYK",
+          "away": "PHI",
+          "vegas_line": "NYK -4.5",
+          "model_spread": "NYK -0.3",
+          "edge": 4.2,
+          "win_prob": "47.6%",
+          "confidence": 4.8,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Confidence 4.8 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -4.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 225.7
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 215 \u2014 1 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
