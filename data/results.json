@@ -4736,6 +4736,91 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 215 \u2014 1 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-10-22",
+      "us_game_date": "2026-10-21",
+      "day_number": 216,
+      "run_time_aest": "10:19",
+      "games_scoped": [
+        "BKN vs CHA",
+        "TOR vs CHI",
+        "MIA vs MIN"
+      ],
+      "scope_detail": [
+        {
+          "game": "BKN vs CHA",
+          "home": "BKN",
+          "away": "CHA",
+          "vegas_line": "BKN +1.5",
+          "model_spread": "BKN -2.0",
+          "edge": 3.5,
+          "win_prob": "38.0%",
+          "confidence": 24.0,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Confidence 24.0 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 1.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 228.8
+        },
+        {
+          "game": "TOR vs CHI",
+          "home": "TOR",
+          "away": "CHI",
+          "vegas_line": "TOR -10.5",
+          "model_spread": "TOR -0.4",
+          "edge": 10.1,
+          "win_prob": "50.5%",
+          "confidence": 1.0,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 10.1pts outside 3-7 range & Confidence 1.0 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -10.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 231.1
+        },
+        {
+          "game": "MIA vs MIN",
+          "home": "MIA",
+          "away": "MIN",
+          "vegas_line": "MIA -1.5",
+          "model_spread": "MIA +3.6",
+          "edge": 5.1,
+          "win_prob": "62.5%",
+          "confidence": 25.0,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Confidence 25.0 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -1.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 226.1
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 216 \u2014 3 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
