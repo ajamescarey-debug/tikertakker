@@ -4965,6 +4965,67 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 218 \u2014 5 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-10-25",
+      "us_game_date": "2026-10-24",
+      "day_number": 219,
+      "run_time_aest": "09:28",
+      "games_scoped": [
+        "CLE vs BKN",
+        "PHI vs MIL"
+      ],
+      "scope_detail": [
+        {
+          "game": "CLE vs BKN",
+          "home": "CLE",
+          "away": "BKN",
+          "vegas_line": "CLE -11.0",
+          "model_spread": "CLE +9.7",
+          "edge": 20.7,
+          "win_prob": "79.3%",
+          "confidence": 58.6,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 20.7pts outside 3-7 range",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -11.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 229.3
+        },
+        {
+          "game": "PHI vs MIL",
+          "home": "PHI",
+          "away": "MIL",
+          "vegas_line": "PHI -13.0",
+          "model_spread": "PHI +4.2",
+          "edge": 17.2,
+          "win_prob": "65.5%",
+          "confidence": 31.0,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 17.2pts outside 3-7 range & Confidence 31.0 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -13.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 230.7
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 219 \u2014 2 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
