@@ -5026,6 +5026,115 @@
       "bets_flagged": [],
       "bets_placed": 0,
       "note": "Day 219 \u2014 2 games scoped, 0 qualifying bets."
+    },
+    {
+      "date": "2026-10-26",
+      "us_game_date": "2026-10-25",
+      "day_number": 220,
+      "run_time_aest": "09:33",
+      "games_scoped": [
+        "NYK vs ORL",
+        "OKC vs LAC",
+        "MIN vs TOR",
+        "PHI vs DET"
+      ],
+      "scope_detail": [
+        {
+          "game": "NYK vs ORL",
+          "home": "NYK",
+          "away": "ORL",
+          "vegas_line": "NYK -7.0",
+          "model_spread": "NYK +0.5",
+          "edge": 7.5,
+          "win_prob": "51.8%",
+          "confidence": 3.6,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 7.5pts outside 3-7 range & Confidence 3.6 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -7.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 226.6
+        },
+        {
+          "game": "OKC vs LAC",
+          "home": "OKC",
+          "away": "LAC",
+          "vegas_line": "OKC -16.0",
+          "model_spread": "OKC +6.8",
+          "edge": 22.8,
+          "win_prob": "75.0%",
+          "confidence": 50.1,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 22.8pts outside 3-7 range",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -16.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 228.1
+        },
+        {
+          "game": "MIN vs TOR",
+          "home": "MIN",
+          "away": "TOR",
+          "vegas_line": "MIN -4.0",
+          "model_spread": "MIN +6.9",
+          "edge": 10.9,
+          "win_prob": "73.0%",
+          "confidence": 46.0,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 10.9pts outside 3-7 range & Confidence 46.0 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": -4.0,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 229.7
+        },
+        {
+          "game": "PHI vs DET",
+          "home": "PHI",
+          "away": "DET",
+          "vegas_line": "PHI +1.5",
+          "model_spread": "PHI +1.5",
+          "edge": 0.0,
+          "win_prob": "58.0%",
+          "confidence": 16.0,
+          "qualifies": false,
+          "verdict": "NO BET",
+          "reason": "Edge 0.0pts outside 3-7 range & Confidence 16.0 outside 50-70",
+          "bet_side": null,
+          "books": {
+            "tab": {
+              "spread": 1.5,
+              "odds": 1.9
+            }
+          },
+          "best_book": "tab",
+          "best_odds": 1.9,
+          "proj_total": 231.2
+        }
+      ],
+      "bets_flagged": [],
+      "bets_placed": 0,
+      "note": "Day 220 \u2014 4 games scoped, 0 qualifying bets."
     }
   ],
   "bets": [],
